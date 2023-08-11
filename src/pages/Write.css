@@ -1,0 +1,27 @@
+/* .Editor .bottom_section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+ */
+
+.Button_section {
+
+}
+
+
+.Write .bottom_section {
+  display : flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Write .left_button {
+  width: 25%;
+  justify-content: start;
+}
+
+.Write .right_button {
+  width: 25%;
+  justify-content: end;
+}

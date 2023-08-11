@@ -1,0 +1,17 @@
+
+svg {
+  color: #C4C4C4;
+  cursor: pointer;
+}
+
+:hover svg {
+  color : #fcc419;
+}
+
+svg:hover ~ svg {
+  color: #C4C4C4;
+}
+
+.yellowStar {
+  color: #fcc419;
+}

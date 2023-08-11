@@ -1,4 +1,5 @@
 import './Header.css';
+import 도시락 from '../img/도시락.png'
 
 const Header = ({ title, leftChild, rightChild }) => {
   return (

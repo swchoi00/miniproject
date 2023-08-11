@@ -8,7 +8,7 @@
 }
 
 .Button_default {
-  background: #FFAA88;
+  background: white;
   color: black;
 }
 
@@ -20,4 +20,9 @@
 .Button_negative {
   background: #fd565f;
   color: white;
+}
+
+.Button_whiteBack {
+  background: white;
+  color: black;
 }

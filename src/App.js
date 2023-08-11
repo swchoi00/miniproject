@@ -1,28 +1,24 @@
-
 import './App.css';
 import './components/Button.css'
-import Button from './components/Button';
-import Header from './components/Header';
 import { Route, Routes, useNavigate } from 'react-router-dom';
-import write from './pages/write';
-
-
+import Detail from './pages/Detail';
+import Home from './pages/Home';
+import Write from './pages/Write';
 
 
 function App() {
-  const headerTitle = '맛집리스트'
-  const textBar = '맛있는 음식 공유하기';
-  const navigate = useNavigate();
+  const textBar = '';
 
   return (
     <div className="App">
+      
 
-      <Header title={headerTitle}>
       <Routes>
-        <Route path='/' element={<write />} />
-        <Route path='/write' element={<write />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/Write' element={<Write />} />
+        <Route path='/detail' element={<Detail />} />
+
       </Routes>
-      </Header>
       <div>
         {textBar}
       </div>
