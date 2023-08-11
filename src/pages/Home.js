@@ -19,7 +19,7 @@ const navigate = useNavigate();
     return (
         <div style={{backgroundImage:'/도시락.png'}}>
 
-            <Header title={'맛집리스트'} 
+            <Header title={URL} 
             leftChild={<Button text={'뒤로가기'} clickHandler={goBack} /> }
             rightChild={<Button text={'글 작성'} clickHandler={goWrite} />} 
             />
