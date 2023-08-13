@@ -1,15 +1,16 @@
 
-svg {
-  color: #C4C4C4;
+
+& svg {
+  color: gray;
   cursor: pointer;
 }
 
 :hover svg {
-  color : #fcc419;
+  color: #fcc419;
 }
 
-svg:hover ~ svg {
-  color: #C4C4C4;
+& svg:hover ~ svg {
+  color: gray;
 }
 
 .yellowStar {
