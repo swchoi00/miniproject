@@ -44,3 +44,6 @@ body {
   margin: 0px;
 }
 
+.Button_write_text {
+  border: 1px solid black;
+}
