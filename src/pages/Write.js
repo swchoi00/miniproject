@@ -68,13 +68,20 @@ const Write = (props) => {
     }));
   };
 
+  const onChangeStarHandler = (e) => {
+    setData((saveInfo) => ({
+      ...saveInfo,
+      star : e.target.value
+    }));
+  };
+
 
   const location = [
-    { value: 'default', name: '지역선택' },
-    { value: 'gangseo', name: '강서구' },
-    { value: 'gangdong', name: '강동구' },
-    { value: 'gangnam', name: '강남구' },
-    { value: 'ganbuk', name: '강북구' },
+    { value: '지역선택', name: '지역선택' },
+    { value: '강서구', name: '강서구' },
+    { value: '강동구', name: '강동구' },
+    { value: '강남구', name: '강남구' },
+    { value: '강북구', name: '강북구' },
   ]
 
   // const [chooseLocation, setChooseLocation] = useState('gangseo');
@@ -91,13 +98,6 @@ const Write = (props) => {
 
       // leftChild={<Button className="whiteBack" text={'◀'} clickHandler={goBack}  />}
       />
-      <button onClick={() => {
-        alert('a')
-        props.setData(10);
-      }}>aa</button>
-      <button onClick={() => {
-        navigate('/list')
-      }}>aaa</button>
       <div>
         <h3>맛집 이름</h3>
         <input className="restName" type="text" style={{}} placeholder="맛집의 이름을 알려주세요" onChange={onChangeNameHandler}></input>
@@ -106,8 +106,7 @@ const Write = (props) => {
 
       <div>
         <h3>지역 선택</h3>
-        <Form.Select aria-label="Default select example" onChange={onChangeLocationHandler} value={chooseLocation} >
-          {
+        <Form.Select aria-label="Default select example" class="form-select custom-select">          {
             location.map((data, i) => {
               return (
                 <option key={i} value={data.value} selected={data.value === 'default'} disabled={data.value === 'default'} >

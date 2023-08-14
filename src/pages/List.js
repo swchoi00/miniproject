@@ -21,7 +21,7 @@ const List = (props) => {
     <div>
 
     {/* {props.data.name} */}
-    {props.data.location}
+    
 
 
       {/* 왜안떠 : {props.data} */}

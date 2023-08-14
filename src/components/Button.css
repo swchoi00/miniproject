@@ -7,8 +7,10 @@
   white-space: nowrap;
 }
 
-.write_text {
+.Button_write_button {
   border: 1px solid black;
+  color: black;
+  background-color: white;
 }
 
 .Button_default {

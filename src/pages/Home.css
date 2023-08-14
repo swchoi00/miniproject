@@ -1,3 +1,20 @@
-.write_text {
-  border: 1px solid black;
+/* .Home {
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+} */
+
+.img_section {
+  padding: 20px;
+  display: flex;
+}
+
+.Home .food_info {
+  font-weight: bold;
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+
+.food_info {
+  padding: 20px;
 }

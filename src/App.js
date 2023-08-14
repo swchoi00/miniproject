@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Write from './pages/Write';
 import List from './pages/List';
 import { useState } from 'react';
+import Star from './pages/Star';
 // import { createContext } from 'react';
 
 // export const infoContext = createContext();
@@ -13,28 +14,30 @@ import { useState } from 'react';
 function App(props) {
   const textBar = '';
   const [data, setData] = useState({
-    name : '',
-    location : '',
-    file : '',
-    review : ''
+    name: '',
+    location: '',
+    file: '',
+    review: '',
+    star: ''
   });
+
   console.log(data);
-  const [num, setNum] = useState(0)
 
   return (
     <div className="App">
 
 
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<Home data={data} />} />
+        <Route path='/' element={<Star data={data} setData={setData} />} />
 
         {/* <Route path='/Write' element={<Write num={num} setNum={setNum}/>} /> */}
-        <Route path='/Write' element={<Write data={data} setData={setData}/>} />
-        
+        <Route path='/Write' element={<Write data={data} setData={setData} />} />
+
         <Route path='/detail' element={<Detail />} />
 
         {/* <Route path='/list' element={<List num={num} />} /> */}
-        <Route path='/list' element={<List data={data} />} />
+        <Route path='/list' element={<List />} />
 
       </Routes>
       <div>
