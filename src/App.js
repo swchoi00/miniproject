@@ -14,16 +14,17 @@ import Star from './pages/Star';
 function App(props) {
   const textBar = '';
 
-  const [data, setData] = useState([
-    {
-    name: '',
-    location: '',
-    file: '',
-    review: '',
-    star: 0
-    }
-]);
+//   const [data, setData] = useState([
+//     {
+//     name: '',
+//     location: '',
+//     file: '',
+//     review: '',
+//     star: 0
+//     }
+// ]);
 
+  const [data, setData] = useState([]);
   
 
 

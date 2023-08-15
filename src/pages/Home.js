@@ -7,7 +7,7 @@ import './Home.css';
 import 김치찌개 from '../img/김치찌개.jpg'
 import Star from "./Star";
 
-const Home = (props) => {
+const Home = ( {data} ) => {
     const navigate = useNavigate();
 
     const goWrite = () => {
@@ -19,10 +19,9 @@ const Home = (props) => {
     }
 
 
-    
 
-    console.log(props.data.star);
-    console.log(typeof props)
+
+
     return (
         <div style={{ backgroundImage: '/도시락.png' }}>
 
@@ -30,13 +29,15 @@ const Home = (props) => {
             />
             <Button className="write_button" type={'write_button'} text={'글 작성'} clickHandler={goWrite} />
 
-            
-            {props.data.map((item, index) => (
+
+
+            {data.map((item, index) => (
+
                 <div className="img_section" key={index}>
                     <img
                         style={{ width: '150px', height: '150px' }}
                         src={김치찌개}
-                        alt="김치찌개 이미지"
+                        alt="맛집 이미지"
                         onClick={onClickhandler}
                     />
                     <ul>
@@ -46,7 +47,9 @@ const Home = (props) => {
                         <li>별점: {item.star}</li>
                     </ul>
                 </div>
+
             ))}
+
         </div>
     );
 }
