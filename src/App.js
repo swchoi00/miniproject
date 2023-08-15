@@ -13,13 +13,19 @@ import Star from './pages/Star';
 
 function App(props) {
   const textBar = '';
-  const [data, setData] = useState({
+
+  const [data, setData] = useState([
+    {
     name: '',
     location: '',
     file: '',
     review: '',
-    star: ''
-  });
+    star: 0
+    }
+]);
+
+  
+
 
   console.log(data);
 
@@ -29,14 +35,8 @@ function App(props) {
 
       <Routes>
         <Route path='/' element={<Home data={data} />} />
-        <Route path='/' element={<Star data={data} setData={setData} />} />
-
-        {/* <Route path='/Write' element={<Write num={num} setNum={setNum}/>} /> */}
         <Route path='/Write' element={<Write data={data} setData={setData} />} />
-
         <Route path='/detail' element={<Detail />} />
-
-        {/* <Route path='/list' element={<List num={num} />} /> */}
         <Route path='/list' element={<List />} />
 
       </Routes>

@@ -106,7 +106,8 @@ const Write = (props) => {
 
       <div>
         <h3>지역 선택</h3>
-        <Form.Select aria-label="Default select example" class="form-select custom-select">          {
+        <select onChange={onChangeLocationHandler}>          
+         {
             location.map((data, i) => {
               return (
                 <option key={i} value={data.value} selected={data.value === 'default'} disabled={data.value === 'default'} >
@@ -115,7 +116,7 @@ const Write = (props) => {
               );
             })
           }
-        </Form.Select >
+        </select>
 
         <div>
           <h3>사진 첨부</h3>

@@ -21,10 +21,9 @@ const Star = (props) => {
     sendReview();
   }, [clicked]);
 
-  const sendReview = (e) => {
+  const sendReview = () => {
     let score = clicked.filter(Boolean).length;
-    console.log(score);
-  }
+  };
 
 
   return (
