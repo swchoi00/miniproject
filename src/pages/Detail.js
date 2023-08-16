@@ -12,11 +12,7 @@ const { kakao } = window
 
 const Detail = ({ data }) => {
 
-<<<<<<< HEAD
     const { selectedId } = useParams();
-=======
-  const { selectedId } = useParams();
->>>>>>> a831eb9f6de8ed5cb36b6d488e2a4d1be0c502f3
 
 
   // data 배열에서 선택된 가게 정보 찾기
@@ -95,7 +91,7 @@ const Detail = ({ data }) => {
           <tbody>
             <tr>
               <th>주소</th>
-              <td>화곡역 1번출구 어딘가</td>
+              <td>{selectedStore.place}</td>
               <br />
               <td><div className="map" id='map' ></div></td>
 
@@ -103,7 +99,7 @@ const Detail = ({ data }) => {
 
             <tr>
               <th>메모</th>
-              <td></td>
+              <td>{selectedStore.review}</td>
             </tr>
           </tbody>
 

@@ -43,7 +43,7 @@ const Write = ({ data, setData }) => {
     setInputText("");
     
     // state 객체를 전달하여 선택한 가게의 id를 넘겨줌 
-    navigate('/detail', { state: { selectedName: setId } });
+    // navigate('/detail', { state: { selectedName: setId } });
     
   }
 
