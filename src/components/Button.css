@@ -19,12 +19,12 @@
 }
 
 .Button_positive {
-  background: #64c964;
+  background: orange;
   color: white;
 }
 
 .Button_negative {
-  background: #fd565f;
+  background: salmon;
   color: white;
 }
 

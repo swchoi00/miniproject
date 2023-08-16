@@ -6,6 +6,8 @@ import React, { useState } from "react";
 import './Write.css';
 import 도시락 from '../img/도시락.png';
 import Star from "../pages/Star"
+import MapContainer from "./MapContainer";
+
 
 const Write = ({ data, setData }) => {
   const navigate = useNavigate();
@@ -13,11 +15,28 @@ const Write = ({ data, setData }) => {
   // saveInfo : 입력된 정보를 저장
   const [saveInfo, setInfo] = useState({
     name: '',
-    location: '지역선택',
+    location: '',
     file: null,
     review: '',
-    star: 0
+    star: 0,
   });
+
+  // 카카오맵 위치설정
+  const [inputText, setInputText] = useState("");
+  const [place, setPlace] = useState("");
+
+  const onChange = (e) => {
+    setInputText(e.target.value);
+    setInfo({ ...saveInfo, location: e.target.value })
+    
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setPlace(inputText);
+    setInputText("");
+    // setData([...data, setInputText]);
+  }
 
   // const handleImageChange = (e) => {
   //   const file = e.target.files[0];
@@ -58,7 +77,7 @@ const Write = ({ data, setData }) => {
         <input className="restName" type="text" placeholder="맛집의 이름을 알려주세요" onChange={(e) => setInfo({ ...saveInfo, name: e.target.value })} />
       </div>
 
-      <div>
+      {/* <div>
         <h3>지역 선택</h3>
         <select onChange={(e) => setInfo({ ...saveInfo, location: e.target.value })} value={saveInfo.location}>
           <option value="지역선택" disabled>지역선택</option>
@@ -67,7 +86,17 @@ const Write = ({ data, setData }) => {
           <option value="강남구">강남구</option>
           <option value="강북구">강북구</option>
         </select>
-      </div>
+      </div> */}
+
+    <div>
+
+      <form className="inputForm" onSubmit={handleSubmit}>
+        <input placeholder="위치를 입력하세요" onChange={onChange} value={inputText}/>
+        <button type="submit">검색</button>
+      </form>
+      <MapContainer searchPlace={place} />
+
+    </div>
 
       <div>
         <h3>사진 첨부</h3>
@@ -75,7 +104,7 @@ const Write = ({ data, setData }) => {
       </div>
 
       <div>
-        <h3>리뷰 작성</h3>
+        <h3>메모 작성</h3>
         <textarea className="reviewArea" placeholder="리뷰를 작성해주세요" onChange={(e) => setInfo({ ...saveInfo, review: e.target.value })}></textarea>
       </div>
 

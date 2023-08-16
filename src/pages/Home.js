@@ -5,7 +5,6 @@ import Header from "../components/Header";
 import 도시락 from '../img/도시락.png'
 import './Home.css';
 import 김치찌개 from '../img/김치찌개.jpg'
-import Star from "./Star";
 
 const Home = ( {data} ) => {
     const navigate = useNavigate();
@@ -42,9 +41,9 @@ const Home = ( {data} ) => {
                     />
                     <ul>
                         <li>이름: {item.name}</li>
-                        <li>지역: {item.location}</li>
-                        <li>리뷰: {item.review}</li>
-                        <li>별점: {item.star}</li>
+                        <li>위치: {item.location}</li>
+                        <li>메모: {item.review}</li>
+                        {/* <li>별점: {item.star}</li> */}
                     </ul>
                 </div>
 
