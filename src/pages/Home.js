@@ -13,12 +13,9 @@ const Home = ( {data} ) => {
         navigate('/Write');
     }
 
-    const onClickhandler = () => {
-        navigate('/detail');
-    }
-
-
-
+    const onClickhandler = (selectedId) => {
+        navigate(`/detail/${selectedId}`);
+      }
 
 
     return (
@@ -37,7 +34,7 @@ const Home = ( {data} ) => {
                         style={{ width: '150px', height: '150px' }}
                         src={김치찌개}
                         alt="맛집 이미지"
-                        onClick={onClickhandler}
+                        onClick={() => onClickhandler(item.id)}
                     />
                     <ul>
                         <li>이름: {item.name}</li>

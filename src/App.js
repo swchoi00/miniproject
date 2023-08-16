@@ -34,7 +34,7 @@ function App(props) {
       <Routes>
         <Route path='/' element={<Home data={data} />} />
         <Route path='/Write' element={<Write data={data} setData={setData} />} />
-        <Route path='/detail' element={<Detail data={data}/>} />
+        <Route path='/detail/:selectedId' element={<Detail data={data} />} />
         <Route path='/list' element={<List />} />
 
       </Routes>

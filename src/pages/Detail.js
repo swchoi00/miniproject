@@ -5,11 +5,16 @@ import 김치찌개 from '../img/김치찌개.jpg'
 import './Detail.css';
 import { useEffect } from "react";
 import MapContainer from "./MapContainer";
+import { useParams } from "react-router-dom";
 
 const { kakao } = window
 
 
 const Detail = ({ data }) => {
+
+
+  // data 배열에서 선택된 가게 정보 찾기
+  const selectedStore = data.find(item => item.id === parseInt(selectedId));
 
 
   useEffect(() => {
@@ -27,12 +32,12 @@ const Detail = ({ data }) => {
     // 키워드로 장소 검색
     ps.keywordSearch(data.location, placeSearchCB);
 
-    function placeSearchCB (data, status, pagination) {
-      if (status === kakao.maps.services.Status.OK){
+    function placeSearchCB(data, status, pagination) {
+      if (status === kakao.maps.services.Status.OK) {
 
         let bounds = new kakao.maps.LatLngBounds();
 
-        for (let i=0; i<data.length; i++) { 
+        for (let i = 0; i < data.length; i++) {
           displayMarker(data[i]);
           bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
         }
@@ -43,24 +48,19 @@ const Detail = ({ data }) => {
 
     function displayMarker(place) {
       let marker = new kakao.maps.Marker({
-        map : map,
-        position : new kakao.maps.LatLng(place.y, place.x)
+        map: map,
+        position: new kakao.maps.LatLng(place.y, place.x)
       });
     }
 
   }, []);
-
-  // kakao.maps.event.addListener(marker, 'click', function(){
-  //   //마커를 클릭하면 장소명이 인포윈도우에 표출
-  //   infowindow.setContent('<div style="padding:5px; font-size:12px;">' + place.place_name + '</div>');
-  //   infowindow.open(map, marker);
-  // });
 
   const navigate = useNavigate();
 
   const goBack = () => {
     navigate(-1);
   }
+
 
   return (
 
@@ -71,9 +71,13 @@ const Detail = ({ data }) => {
         {/* <Button className='left_button' text={'< 뒤로가기'} clickHandler={goBack} /> */}
       </div>
 
-      <div className="place_name">
-        <h3> + ★★★★</h3>
-      </div>
+
+      {/* 선택한 가게 정보가 존재할 때 가게이름을 출력 */}
+      {selectedStore && (
+        <div className="place_name">
+          <h3>{selectedStore.name}</h3>
+        </div>
+      )}
 
       <br />
       <section className="info_section">
@@ -105,7 +109,7 @@ const Detail = ({ data }) => {
 
 
       <div className="location_section">
-        <MapContainer searchPlace={data.location} />
+
       </div>
 
 
@@ -118,35 +122,6 @@ const Detail = ({ data }) => {
 
   )
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 export default Detail;

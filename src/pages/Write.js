@@ -12,8 +12,12 @@ import MapContainer from "./MapContainer";
 const Write = ({ data, setData }) => {
   const navigate = useNavigate();
 
+  // 추가되는 가게들을 식별하기 위해 id값 설정 -> 가게가 추가될 때마다 다음 숫자의 id를 부여
+  const setId = data.length + 1;
+
   // saveInfo : 입력된 정보를 저장
   const [saveInfo, setInfo] = useState({
+    id : setId,
     name: '',
     location: '',
     file: null,
@@ -31,27 +35,17 @@ const Write = ({ data, setData }) => {
     
   }
 
+
+  // 등록하기 버튼을 눌렀을 때 실행
   const handleSubmit = (e) => {
     e.preventDefault();
     setPlace(inputText);
     setInputText("");
-    // setData([...data, setInputText]);
+    
+    // state 객체를 전달하여 선택한 가게의 id를 넘겨줌 
+    navigate('/detail', { state: { selectedName: setId } });
+    
   }
-
-  // const handleImageChange = (e) => {
-  //   const file = e.target.files[0];
-
-  //   if (file) {
-  //     const reader = new FileReader();
-  //     reader.readAsDataURL(file);
-  //     reader.onload = () => {
-  //       setInfo({
-  //         ...saveInfo,
-  //         file: reader.result // 이미지 Base64 문자열로 저장
-  //       });
-  //     };
-  //   }
-  // };
 
   // 등록하기 버튼을 눌렀을 때 실행
   // 입력된 정보는 saveInfo에 저장되고 App에서 만들어놓은 setData를 사용해 기존 data 배열에 추가
