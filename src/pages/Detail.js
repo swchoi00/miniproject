@@ -12,6 +12,8 @@ const { kakao } = window
 
 const Detail = ({ data }) => {
 
+  const { selectedId } = useParams();
+
 
   // data 배열에서 선택된 가게 정보 찾기
   const selectedStore = data.find(item => item.id === parseInt(selectedId));
