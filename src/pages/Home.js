@@ -37,10 +37,20 @@ const Home = ( {data} ) => {
                         onClick={() => onClickhandler(item.id)}
                     />
                     <ul>
-                        <li>이름: {item.name}</li>
-                        <li>위치: {item.location}</li>
-                        <li>메모: {item.review}</li>
-                        {/* <li>별점: {item.star}</li> */}
+                    <tbody>
+                        <tr>
+                            <th>이름</th>
+                            <td>{item.name}</td>
+                        </tr>
+                        <tr>
+                            <th>위치</th>
+                            <td>{item.location}</td>
+                        </tr>
+                        <tr>
+                            <th>메모</th>
+                            <td>{item.review}</td>
+                        </tr>
+                    </tbody>
                     </ul>
                 </div>
 
