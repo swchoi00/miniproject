@@ -1,0 +1,41 @@
+th {
+  display: table-cell;
+  width: 110px;
+  padding-right: 10px;
+  padding-bottom : 5px;
+  vertical-align: middle;
+  text-align: left;
+}
+
+td {
+  padding : 10px;
+}
+
+tbody {
+  border-bottom: 1px solid #ececec;
+}
+
+.place_name {
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.detail_img_section  {
+  text-align: center;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.img_file {
+  width: 250px;
+  height: 250px;
+}
+
+.location_section {
+  text-align: center;
+}
+
+.map {
+  align-items: center;
+  width: 250px;
+  height: 250px;
+}
+

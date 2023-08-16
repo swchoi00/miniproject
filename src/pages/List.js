@@ -1,5 +1,4 @@
 import { useCallback, useState } from "react";
-import Write from "./Write";
 
 
 
@@ -12,7 +11,6 @@ const List = (props) => {
   //   review: '',
 
   // });
-
 
 
   console.log(props)

@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import React, { useState } from "react";
 import './Write.css';
 import 도시락 from '../img/도시락.png';
+import Star from "../pages/Star"
 
 const Write = ({ data, setData }) => {
   const navigate = useNavigate();
@@ -18,20 +19,20 @@ const Write = ({ data, setData }) => {
     star: 0
   });
 
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
+  // const handleImageChange = (e) => {
+  //   const file = e.target.files[0];
 
-    if (file) {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => {
-        setInfo({
-          ...saveInfo,
-          file: reader.result // 이미지 Base64 문자열로 저장
-        });
-      };
-    }
-  };
+  //   if (file) {
+  //     const reader = new FileReader();
+  //     reader.readAsDataURL(file);
+  //     reader.onload = () => {
+  //       setInfo({
+  //         ...saveInfo,
+  //         file: reader.result // 이미지 Base64 문자열로 저장
+  //       });
+  //     };
+  //   }
+  // };
 
   // 등록하기 버튼을 눌렀을 때 실행
   // 입력된 정보는 saveInfo에 저장되고 App에서 만들어놓은 setData를 사용해 기존 data 배열에 추가
@@ -76,6 +77,10 @@ const Write = ({ data, setData }) => {
       <div>
         <h3>리뷰 작성</h3>
         <textarea className="reviewArea" placeholder="리뷰를 작성해주세요" onChange={(e) => setInfo({ ...saveInfo, review: e.target.value })}></textarea>
+      </div>
+
+      <div className="Rate">
+        <Star />
       </div>
 
       <p>
