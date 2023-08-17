@@ -5,6 +5,7 @@ import Detail from './pages/Detail';
 import Home from './pages/Home';
 import Write from './pages/Write';
 import List from './pages/List';
+import Star from './pages/Star';
 import { useState } from 'react';
 // import { createContext } from 'react';
 
@@ -25,6 +26,7 @@ function App(props) {
 
   const [data, setData] = useState([]);
 
+
   console.log(data);
 
   return (
@@ -36,6 +38,7 @@ function App(props) {
         <Route path='/Write' element={<Write data={data} setData={setData} />} />
         <Route path='/detail/:selectedId' element={<Detail data={data} />} />
         <Route path='/list' element={<List />} />
+        <Route path='/' element={<Star data={data}/>} />
 
       </Routes>
       <div>

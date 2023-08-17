@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import MapContainer from "./MapContainer";
 import { useParams } from "react-router-dom";
 
+
 const { kakao } = window
 
 
@@ -63,6 +64,7 @@ const Detail = ({ data }) => {
     navigate(-1);
   }
 
+  console.log(selectedStore.star)
 
   return (
 
@@ -81,17 +83,19 @@ const Detail = ({ data }) => {
         </div>
       )}
 
+      {/* <img src="http://via.placeholder.com/640x480" alt=""></img> */}
+
       <br />
       <section className="info_section">
         <div className="detail_img_section">
-          <img className="img_file" src={김치찌개} alt="음식이미지" ></img>
+          <img className="img_file" src="http://via.placeholder.com/250x250" alt="음식이미지" ></img>
           <br />
           <br />
 
           <tbody>
             <tr>
               <th>주소</th>
-              <td>{selectedStore.place}</td>
+              <td>{selectedStore.location}</td>
               <br />
               <td><div className="map" id='map' ></div></td>
 
@@ -101,6 +105,7 @@ const Detail = ({ data }) => {
               <th>메모</th>
               <td>{selectedStore.review}</td>
             </tr>
+
           </tbody>
 
         </div>

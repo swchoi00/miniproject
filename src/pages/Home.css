@@ -17,8 +17,43 @@
 
 .food_info {
   padding: 20px;
+  /* color : #C594C5 */
 }
 
 .showInfo {
   margin: 10px;
+}
+
+/* 여기서부터 스크롤버튼 */
+
+.topBtn {
+  position: fixed; 
+  opacity: 0; 
+  bottom: 40px; 
+  right: 40px;
+  z-index: -10; 
+  width: 50px; 
+  height: 50px;
+  border-radius: 100%;
+  border: 0 none;
+  background: white;
+  color: black;
+  border: 2px solid white;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: -0.06em;
+  box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: opacity 0.3s ease-in;
+}
+
+.topBtn.active {
+  z-index: 10; 
+  opacity: 1; 
+}
+
+.topBtn:hover,
+.topBtn:focus,
+.topBtn:active { 
+  outline: 0 none; 
 }
