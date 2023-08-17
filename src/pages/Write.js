@@ -37,12 +37,6 @@ const Write = ({ data, setData }) => {
     star: '',
   });
 
-
-
-
-
-
-
   // 카카오맵 위치설정
   const [inputText, setInputText] = useState("");
   const [place, setPlace] = useState("");

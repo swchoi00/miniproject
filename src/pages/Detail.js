@@ -33,7 +33,7 @@ const Detail = ({ data }) => {
     const ps = new kakao.maps.services.Places();
 
     // 키워드로 장소 검색
-    ps.keywordSearch(data.location, placeSearchCB);
+    ps.keywordSearch(selectedStore.location, placeSearchCB);
 
     function placeSearchCB(data, status, pagination) {
       if (status === kakao.maps.services.Status.OK) {
@@ -79,7 +79,7 @@ const Detail = ({ data }) => {
       {/* 선택한 가게 정보가 존재할 때 가게이름을 출력 */}
       {selectedStore && (
         <div className="place_name">
-          <h3>{selectedStore.name}</h3>
+          <h3>{selectedStore.name} {selectedStore.star}</h3>
         </div>
       )}
 
