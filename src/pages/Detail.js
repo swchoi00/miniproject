@@ -1,11 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
-import 도시락 from '../img/도시락.png'
-import 김치찌개 from '../img/김치찌개.jpg'
+import 로고 from '../img/로고.png'
 import './Detail.css';
 import { useEffect } from "react";
 import MapContainer from "./MapContainer";
 import { useParams } from "react-router-dom";
+import img0 from '../img/img0.jpg'
+import img1 from '../img/img1.jpg'
+import img2 from '../img/img2.jpg'
+import img3 from '../img/img3.jpg'
+import img4 from '../img/img4.jpg'
+import Share from "../components/Share";
 
 
 const { kakao } = window
@@ -13,7 +18,9 @@ const { kakao } = window
 
 const Detail = ({ data }) => {
 
-    const { selectedId } = useParams();
+  const { selectedId } = useParams();
+
+  const imgs = [img0, img1, img2, img3, img4]
 
 
   // data 배열에서 선택된 가게 정보 찾기
@@ -67,9 +74,8 @@ const Detail = ({ data }) => {
   console.log(selectedStore.star)
 
   return (
-
     <div>
-      <Header title={<img src={도시락} style={{ width: '100%', height: '50%' }} alt="도시락.png" onClick={goBack}></img>} />
+      <Header title={<img src={로고} style={{ width: '100%', height: '50%' }} alt="로고.png" onClick={goBack}></img>} />
 
       <div className="Button_section">
         {/* <Button className='left_button' text={'< 뒤로가기'} clickHandler={goBack} /> */}
@@ -79,23 +85,30 @@ const Detail = ({ data }) => {
       {/* 선택한 가게 정보가 존재할 때 가게이름을 출력 */}
       {selectedStore && (
         <div className="place_name">
-          <h3>{selectedStore.name} {selectedStore.star}</h3>
+          <h3 style={{fontWeight : '200'}}>{selectedStore.name} {selectedStore.star}</h3>
         </div>
       )}
 
       {/* <img src="http://via.placeholder.com/640x480" alt=""></img> */}
 
       <br />
+
       <section className="info_section">
         <div className="detail_img_section">
-          <img className="img_file" src="http://via.placeholder.com/250x250" alt="음식이미지" ></img>
+          {selectedId <= 5 && (
+            <img className="img_file" src={imgs[selectedId-1]} style={{ width: '250px', height: '250px'}} alt="임시데이터용 이미지" />
+          )}
+          {selectedId > 5 && (
+            <img className="img_file" src="http://via.placeholder.com/250x250" alt="음식이미지" ></img>
+          )}
+
           <br />
           <br />
 
           <tbody>
             <tr>
               <th>주소</th>
-              <td>{selectedStore.location}</td>
+              <td style={{backgroundColor:'orange', color : 'white', borderRadius : '15px'}}>{selectedStore.location}</td>
               <br />
               <td><div className="map" id='map' ></div></td>
 
@@ -103,11 +116,10 @@ const Detail = ({ data }) => {
 
             <tr>
               <th>메모</th>
-              <td>{selectedStore.review}</td>
+              <td style={{backgroundColor:'salmon', color : 'white', borderRadius : '15px'}}>{selectedStore.review}</td>
             </tr>
-
           </tbody>
-
+            <br />
         </div>
 
 
@@ -116,7 +128,7 @@ const Detail = ({ data }) => {
 
 
       <div className="location_section">
-
+      <Share/>
       </div>
 
 

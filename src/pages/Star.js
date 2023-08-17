@@ -3,7 +3,7 @@ import { ImStarFull } from "react-icons/im";
 import './Star.css';
 
 
-const Star = (props) => {
+const Star = (props, {setInfo}) => {
 
   const count = [0, 1, 2, 3, 4]
   const [clicked, setClicked] = useState([false, false, false, false, false])
@@ -31,7 +31,7 @@ const Star = (props) => {
     count.map((data, i) => (  
       <ImStarFull key={i} onClick={() => handleStarClick(data)}
         className={clicked[data] && 'yellowStar'}
-        size='100'
+        size='50'
         />))
        
 

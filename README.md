@@ -68,3 +68,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+<!-- useScript의 기능은 src에 해당하는 script를 불러오고, script의 상태를 결과 값으로 내려주는 hooks입니다. 이렇게 사용하는 이유는 script를 비동기로 불러오기 때문에 script가 다 불러왔을 때 우리가 원하는 작업들을 하기 위함입니다. -->
+npm i @uidotdev/usehooks 설치
+
+
+<!-- 입력한 값 복사하기위해 설치 -->
+npm i react-copy-to-clipboard
+
+<!-- 공유버튼 만들기 위해 설치 -->
+npm i react-share

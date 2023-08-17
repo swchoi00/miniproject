@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import React, { useState } from "react";
 import './Write.css';
-import 도시락 from '../img/도시락.png';
+import 로고 from '../img/로고.png';
 import Star from "../pages/Star"
 import MapContainer from "./MapContainer";
 import Button from '@mui/material/Button';
@@ -36,6 +36,7 @@ const Write = ({ data, setData }) => {
     review: '',
     star: '',
   });
+
 
   // 카카오맵 위치설정
   const [inputText, setInputText] = useState("");
@@ -83,10 +84,10 @@ const Write = ({ data, setData }) => {
   // </tr>
   return (
     <>
-      <Header title={<img src={도시락} style={{ width: '100%', height: '50%' }} alt="도시락.png" />} />
+      <Header title={<img src={로고} style={{ width: '100%', height: '50%' }} alt="로고.png" />} />
    
       
-          <h3>맛집 이름</h3>
+          <h2>맛집 이름</h2>
 
           <div>
             <Box
@@ -104,7 +105,7 @@ const Write = ({ data, setData }) => {
    
 
       {/* <div>
-        <h3>지역 선택</h3>
+        <h2>지역 선택</h2>
         <select onChange={(e) => setInfo({ ...saveInfo, location: e.target.value })} value={saveInfo.location}>
           <option value="지역선택" disabled>지역선택</option>
           <option value="강서구">강서구</option>
@@ -118,7 +119,7 @@ const Write = ({ data, setData }) => {
         
         <form className="inputForm" onSubmit={handleSubmit}>
           {/* <input placeholder="위치를 입력하세요" onChange={onChange} value={inputText} /> */}
-          <h3>위치</h3>
+          <h2>위치</h2>
           <Input placeholder="위치를 입력하세요" inputProps={ariaLabel} onChange={onChange} value={inputText} />
           {/* <button type="submit">검색</button>           */}
           <Button variant="contained" style={{ background: 'salmon', width: '50px', height: '30px' }}>검색</Button>
@@ -130,27 +131,31 @@ const Write = ({ data, setData }) => {
       </div>
 
       <div>
-        <h3>사진 첨부</h3>
+        <h2>사진 첨부</h2>
         <input type="file" onChange={(e) => setInfo({ ...saveInfo, file: e.target.value })} />
 
       </div>
 
       <div>
-        <h3>메모 작성</h3>
+        <h2>메모 작성</h2>
         <textarea className="reviewArea" placeholder="메모를 작성해주세요" onChange={(e) => setInfo({ ...saveInfo, review: e.target.value })}></textarea>
       </div>
 
+      <br />
+
       <div className="Rate">
-        <Star />
+        <Star setInfo={setInfo}/>
       </div>
+
+      <br />
 
       <p>
         {/* <div className="Button_section"> */}
-        <Stack direction="row" spacing={2}>
-          <Button variant="contained" style={{ backgroundColor: 'salmon', fontSize: '15px' }} onClick={goBack} startIcon={<DeleteIcon />}>
+        <Stack direction="row" spacing={43}>
+          <Button variant="contained" style={{ backgroundColor: 'salmon', fontSize: '15px' }} onClick={goBack} startIcon={<DeleteIcon style={{color:'white'}}/>}>
             취소하기
           </Button>
-          <Button variant="contained" style={{ backgroundColor: 'orange', fontSize: '15px' }} onClick={submitInfoHandler} endIcon={<SendIcon />}>
+          <Button variant="contained" style={{ backgroundColor: 'orange', fontSize: '15px' }} onClick={submitInfoHandler} endIcon={<SendIcon style={{color:'white'}} />}>
             작성하기
           </Button>
         </Stack>
@@ -160,6 +165,7 @@ const Write = ({ data, setData }) => {
 
       </p>
     </>
+    
   );
 }
 

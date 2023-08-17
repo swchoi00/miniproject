@@ -11,6 +11,42 @@ import { useState } from 'react';
 
 // export const infoContext = createContext();
 
+// 임시 데이터
+const mockData = [
+  {
+    id : 1,
+    name : '장독대 김치찌개',
+    location : '청담동장독대 김치찌개',
+    review : '맛있어서 또 가고 싶다 (가본적 없음)'
+  },
+  {
+    id : 2,
+    name : '임시 데이터 2',
+    location : '임시 주소 2',
+    review : '임시 메모 2'
+  },
+  {
+    id : 3,
+    name : '고든램지버거',
+    location : '고든램지버거 롯데월드 몰',
+    review : '먹어보진 않았지만 맛있다, 가격이 비싸서 누가 사줄때만 먹겠다'
+  },
+  {
+    id : 4,
+    name : '고트델리',
+    location : '고트델리 문래',
+    review : '맛있네'
+  },
+  {
+    id : 5,
+    name : '발리인망원',
+    location : '발리인망원',
+    review : '서울에서 발리를 느낄 수 있는 "발리인망원"'
+  }
+]
+
+
+
 function App(props) {
   const textBar = '';
 
@@ -24,8 +60,9 @@ function App(props) {
 //     }
 // ]);
 
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(mockData);
 
+  
 
   console.log(data);
 
