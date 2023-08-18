@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import 로고 from '../img/로고.png'
 import './Detail.css';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import MapContainer from "./MapContainer";
 import { useParams } from "react-router-dom";
 import img0 from '../img/img0.jpg'
@@ -11,7 +11,11 @@ import img2 from '../img/img2.jpg'
 import img3 from '../img/img3.jpg'
 import img4 from '../img/img4.jpg'
 import Share from "../components/Share";
-
+import Box from '@mui/material/Box';
+import Rating from '@mui/material/Rating';
+import Typography from '@mui/material/Typography';
+import React from "react";
+import Button from "../components/Button";
 
 const { kakao } = window
 
@@ -22,10 +26,11 @@ const Detail = ({ data }) => {
 
   const imgs = [img0, img1, img2, img3, img4]
 
+  // 별점 체크 스테이트
+  const [value, setValue] = useState(2);
 
   // data 배열에서 선택된 가게 정보 찾기
   const selectedStore = data.find(item => item.id === parseInt(selectedId));
-
 
   useEffect(() => {
 
@@ -65,27 +70,43 @@ const Detail = ({ data }) => {
 
   }, []);
 
+
+
   const navigate = useNavigate();
 
   const goBack = () => {
     navigate(-1);
   }
+  
+  const goEdit = () => {
+    navigate(`/editor/${selectedId}`);
+}
 
-  console.log(selectedStore.star)
+  
+  
 
   return (
     <div>
       <Header title={<img src={로고} style={{ width: '100%', height: '50%' }} alt="로고.png" onClick={goBack}></img>} />
-
       <div className="Button_section">
         {/* <Button className='left_button' text={'< 뒤로가기'} clickHandler={goBack} /> */}
+      <button onClick={goEdit}>수정하기</button>
       </div>
 
 
       {/* 선택한 가게 정보가 존재할 때 가게이름을 출력 */}
       {selectedStore && (
         <div className="place_name">
-          <h3 style={{fontWeight : '200'}}>{selectedStore.name} {selectedStore.star}</h3>
+          <tr>
+            <th>
+              <h3 style={{ fontWeight: '200', width : '200px' }}>{selectedStore.name}</h3>
+            </th>
+            <td className="td_rate">
+            <Typography component="legend"></Typography>
+            <Rating name="read-only" value={selectedStore.star} readOnly />
+            </td>
+          </tr>
+
         </div>
       )}
 
@@ -96,7 +117,7 @@ const Detail = ({ data }) => {
       <section className="info_section">
         <div className="detail_img_section">
           {selectedId <= 5 && (
-            <img className="img_file" src={imgs[selectedId-1]} style={{ width: '250px', height: '250px'}} alt="임시데이터용 이미지" />
+            <img className="img_file" src={imgs[selectedId - 1]} style={{ width: '250px', height: '250px' }} alt="임시데이터용 이미지" />
           )}
           {selectedId > 5 && (
             <img className="img_file" src="http://via.placeholder.com/250x250" alt="음식이미지" ></img>
@@ -108,7 +129,7 @@ const Detail = ({ data }) => {
           <tbody>
             <tr>
               <th>주소</th>
-              <td style={{backgroundColor:'orange', color : 'white', borderRadius : '15px'}}>{selectedStore.location}</td>
+              <td style={{ backgroundColor: 'orange', color: 'white', borderRadius: '15px' }}>{selectedStore.location}</td>
               <br />
               <td><div className="map" id='map' ></div></td>
 
@@ -116,10 +137,10 @@ const Detail = ({ data }) => {
 
             <tr>
               <th>메모</th>
-              <td style={{backgroundColor:'salmon', color : 'white', borderRadius : '15px'}}>{selectedStore.review}</td>
+              <td style={{ backgroundColor: 'salmon', color: 'white', borderRadius: '15px' }}>{selectedStore.review}</td>
             </tr>
           </tbody>
-            <br />
+          <br />
         </div>
 
 
@@ -128,7 +149,7 @@ const Detail = ({ data }) => {
 
 
       <div className="location_section">
-      <Share/>
+        <Share />
       </div>
 
 

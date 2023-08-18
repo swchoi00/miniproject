@@ -5,12 +5,22 @@ th {
   padding-bottom : 5px;
   vertical-align: middle;
   text-align: left;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 100;
 }
 
 td {
   padding : 10px;
+}
+
+.td_rate {
+  display: table-cell;
+  padding-right: 10px;
+  padding-bottom : 5px;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 100;
 }
 
 tbody {

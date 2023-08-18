@@ -23,6 +23,9 @@ const Home = ({ data }) => {
         navigate('/Write');
     }
 
+
+
+
     // 사진을 누르면 지정한 사진의 정보가 있는 detail 페이지로 이동
     const onClickhandler = (selectedId) => {
         navigate(`/detail/${selectedId}`);
@@ -64,6 +67,7 @@ const Home = ({ data }) => {
 
 
     return (
+
         <div style={{ backgroundImage: '/로고.png' }}>
             <button style={{ fontFamily: 'sans-serif' }}
                 className={BtnStatus ? "topBtn active" : "topBtn"} // 버튼 노출 여부
@@ -94,9 +98,12 @@ const Home = ({ data }) => {
                     <ul>
                         <tbody>
                             <tr>
+                                <th>등록번호</th>
+                                <td>{item.id}</td>
+                            </tr>
+                            <tr>
                                 <th>이름</th>
                                 <td>{item.name}</td>
-                                <td>{item.star}</td>
                             </tr>
                             <tr>
                                 <th>위치</th>
@@ -116,4 +123,5 @@ const Home = ({ data }) => {
         </div>
     );
 }
+
 export default Home;

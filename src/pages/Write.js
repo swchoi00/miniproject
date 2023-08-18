@@ -16,12 +16,12 @@ import Input from '@mui/material/Input';
 import { TextareaAutosize } from "@mui/material";
 import styled from "styled-components";
 
+
 const ariaLabel = { 'aria-label': 'description' };
 
 
-
 const Write = ({ data, setData }) => {
-
+  
   const navigate = useNavigate();
 
   // 추가되는 가게들을 식별하기 위해 id값 설정 -> 가게가 추가될 때마다 다음 숫자의 id를 부여
@@ -144,7 +144,8 @@ const Write = ({ data, setData }) => {
       <br />
 
       <div className="Rate">
-        <Star setInfo={setInfo}/>
+        <Star saveInfo={saveInfo} setInfo={setInfo}/>
+        
       </div>
 
       <br />
