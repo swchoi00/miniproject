@@ -24,12 +24,16 @@ const ariaLabel = { 'aria-label': 'description' };
 const Editor = ({ data, setData }) => {
   const navigate = useNavigate();
 
+  // URL 매개변수를 통해 선택한 맛집의 id를 가져옴
   const { selectedId } = useParams();
   const selectedStore = data.find(item => item.id === parseInt(selectedId));
+
+  // 해당 정보의 배열 방번호 찾기
   const IndexNum = data.indexOf(selectedStore)
   
   
   const [state, setState] = useState();
+
   const [info, setInfo] = useState({
     id : '',
     name :'',
@@ -50,11 +54,6 @@ const Editor = ({ data, setData }) => {
   const [inputText, setInputText] = useState("");
   const [place, setPlace] = useState("");
 
-  // const onChange = (e) => {
-  //   setInputText(e.target.value);
-  //   setState({ ...state, location: e.target.value })
-
-  // }
 
   const goBack = () => {
     if(window.confirm('취소하시겠습니까?'))
@@ -62,6 +61,7 @@ const Editor = ({ data, setData }) => {
   }
 
 
+  // 삭제버튼
   const onRemove = () => {
     let copy_ = data
     if(window.confirm('정말로 삭제하시겠습니까?'))
@@ -71,6 +71,7 @@ const Editor = ({ data, setData }) => {
   }
 
   // 위치 검색 버튼을 눌렀을 때 실행
+  // 페이지가 새로고침 되는걸 막음
   const handleSubmit = (e) => {
     e.preventDefault();
     setPlace(inputText);
@@ -169,6 +170,7 @@ const Editor = ({ data, setData }) => {
       <br />
 
       <div>
+      {/* Material UI 사용  */}
       <Stack direction="row" spacing={16}>
           <Button variant="contained" style={{backgroundColor : 'salmon', fontSize : '15px'}} onClick={goBack} startIcon={<DeleteIcon style={{color:'white'}}/>}>
             취소하기

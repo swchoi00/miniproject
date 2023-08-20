@@ -54,9 +54,6 @@ const Write = ({ data, setData }) => {
     setPlace(inputText);
     setInputText("");
 
-    // state 객체를 전달하여 선택한 가게의 id를 넘겨줌 
-    // navigate('/detail', { state: { selectedName: setId } });
-
   }
 
   // 등록하기 버튼을 눌렀을 때 실행
@@ -75,12 +72,6 @@ const Write = ({ data, setData }) => {
     }
   };
 
-  // <tbody>
-  // <tr>
-  //     <th>이름</th>
-  //     <td>{item.name}</td>
-  //     <td>{item.star}</td>
-  // </tr>
   return (
     <>
       <Header title={<img src={로고} style={{ width: '100%', height: '50%' }} alt="로고.png" />} />
@@ -98,33 +89,21 @@ const Write = ({ data, setData }) => {
               autoComplete="off"
               >
             </Box>
+            {/* Material UI 사용 */}
             <Input placeholder="" inputProps={ariaLabel} onChange={(e) => setInfo({ ...saveInfo, name: e.target.value })} />
-            {/* <input className="restName" type="text" placeholder="맛집의 이름을 알려주세요" onChange={(e) => setInfo({ ...saveInfo, name: e.target.value })} /> */}
           </div>
    
-
-      {/* <div>
-        <h2>지역 선택</h2>
-        <select onChange={(e) => setInfo({ ...saveInfo, location: e.target.value })} value={saveInfo.location}>
-          <option value="지역선택" disabled>지역선택</option>
-          <option value="강서구">강서구</option>
-          <option value="강동구">강동구</option>
-          <option value="강남구">강남구</option>
-          <option value="강북구">강북구</option>
-        </select>
-      </div> */}
 
       <div>
         
         <form className="inputForm" onSubmit={handleSubmit}>
-          {/* <input placeholder="위치를 입력하세요" onChange={onChange} value={inputText} /> */}
           <h2>위치</h2>
           <Input placeholder="위치를 입력하세요" inputProps={ariaLabel} onChange={onChange} value={inputText} />
-          {/* <button type="submit">검색</button>           */}
           <Button variant="contained" style={{ background: 'salmon', width: '50px', height: '30px' }}>검색</Button>
 
         </form>
         <br />
+        {/* MapContainer로 place값을 보내서 위치 표시 */}
         <MapContainer searchPlace={place} />
 
       </div>
@@ -151,6 +130,7 @@ const Write = ({ data, setData }) => {
 
       <p>
         {/* <div className="Button_section"> */}
+
         <Stack direction="row" spacing={43}>
           <Button variant="contained" style={{ backgroundColor: 'salmon', fontSize: '15px' }} onClick={goBack} startIcon={<DeleteIcon style={{color:'white'}}/>}>
             취소하기
@@ -159,6 +139,7 @@ const Write = ({ data, setData }) => {
             작성하기
           </Button>
         </Stack>
+
         {/* <Button className='left_button' text={'취소하기'} type='negative' clickHandler={goBack} />
           <Button className='right_button' text={'등록하기'} type='positive' clickHandler={submitInfoHandler} /> */}
         {/* </div> */}

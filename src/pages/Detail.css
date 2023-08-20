@@ -23,6 +23,7 @@ td {
   font-weight: 100;
 }
 
+
 tbody {
   border-bottom: 1px solid #ececec;
 }
@@ -46,11 +47,13 @@ tbody {
   
 }
 
-
-
 .map {
   align-items: center;
   width: 250px;
   height: 250px;
+}
+
+.edit_text {
+  padding-left: 110px;
 }
 

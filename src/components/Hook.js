@@ -1,4 +1,9 @@
 // hooks.js
+// useScript 커스텀 훅
+// 웹 페이지에 동적으로 스크립트를 로드, 스크립트의 로딩 상태를 관리하기 위해 사용함
+
+
+
 import { useState, useEffect } from "react";
 
 function useScript(src) {

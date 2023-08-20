@@ -10,6 +10,10 @@ import kakao from "../img/kakao.png"
 import { useScript } from "@uidotdev/usehooks";
 import { useEffect } from "react";
 
+// 공유하기 버튼을 사용하기 위해 라이브러리와 api를 사용
+// 트위터, 페이스북, 카카오톡, URL 공유하기 버튼
+
+
 
 // Style을 적용한 버튼 컴포넌트 추가 -> URL버튼
 const URLShareButton = styled.button`
