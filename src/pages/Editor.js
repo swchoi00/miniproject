@@ -109,8 +109,8 @@ const Editor = ({ data, setData }) => {
   const editInfoHandler = () => {
     if (window.confirm('정말로 수정하시겠습니까?')) {
       let copy = data
-      copy[IndexNum] = state 
-      setData(copy)
+      copy[IndexNum] = state;
+      setData(copy);
       alert('수정 완료');
       navigate('/');
     }
@@ -162,7 +162,7 @@ const Editor = ({ data, setData }) => {
       <br />
 
       <div className="Rate">
-        <Star info={info} setInfo={setInfo}/>
+        <Star info={info} setInfo={setState}/>
       </div>
 
       <br />
