@@ -1,3 +1,7 @@
+.MuiRating-icon > svg > path {
+  color: #faaf00;
+}
+
 th {
   display: table-cell;
   width: 110px;
